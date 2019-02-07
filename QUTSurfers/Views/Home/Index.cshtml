@@ -2,30 +2,97 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<style>
+.panel-default > .panel-heading-custom {
+    background: #1C2331; color: #fff;
+}
+.peopleCarouselImg img {
+  width: auto;
+  height: 400px;
+  max-height: 400px;
+  align-content: center;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}
+
+
+
+</style>
+
+
+    <!-- Carousel -->
+<div id="myCarousel" class="carousel slide" data-interval="5000" data-ride="carousel">
+    <!-- Carousel indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <!-- Wrapper for carousel items -->
+    <div class="carousel-inner">
+        <div class="active item peopleCarouselImg">
+            <img class="first-slide" src="~/Content/Images/bannerV1.1.JPG" alt="First Slide">
+        </div>
+
+        <div class="item peopleCarouselImg">
+            <img class="second-slide" src="~/Content/Images/banner2V1.1.jpg" alt="Second Slide">
+        </div>
+        <div class="item peopleCarouselImg">
+            <img class="third-slide" src="~/Content/Images/banner3V1.1.JPG" alt="Third Slide">
+        </div>
+        
+        <div class="item peopleCarouselImg">
+            <img class="fourth-slide" src="~/Content/Images/banner4.JPG" alt="Fourth Slide">
+        </div>
+    </div>
+    <!-- Carousel controls -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div><br><br>
+
+
+<hr />
+<h4 class="w3-justify"><strong>SEM 01-2019 EVENTS:</strong></h4>
+<hr />
+
+<!--Events Section-->
+<div class="container">    
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom"><strong>BOOK NOW! Byron Bay Trips Sem01-2019</strong></div>
+                <div class="panel-body"><img src="/Content/Images/jeremy-bishop-489932-unsplash.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-footer">
+                    @Html.ActionLink("More Info", "ByronTrip", "Events",null, new {@class= "btn btn-primary btn-md btn-block" })
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4"> 
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom"><strong>Swimming Classes</strong></div>
+                <div class="panel-body"><img src="/Content/Images/marcus-ng-570012-unsplash.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-primary btn-md btn-block">More Info</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4"> 
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-custom"><strong>Intermediate-Advanced Surfing Trips</strong></div>
+                <div class="panel-body"><img src="/Content/Images/blake-hunter-223009-unsplash.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-primary btn-md btn-block">More Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+

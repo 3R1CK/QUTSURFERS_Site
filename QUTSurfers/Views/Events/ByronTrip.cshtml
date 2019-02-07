@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<Style>
+    #buttonAlign {
+        margin-top: 6em;
+        text-align: center;
+    }
+</Style>
+
+<!--Event Name and Image-->
+<div class="row"></div>
+<div class="col-md-1"></div>
+<div class="col-md-7">
+    <img src="/Content/Images/jeremy-bishop-489932-unsplash.jpg" class="img-responsive" style="width:100%" alt="Image">
+</div>
+<div class="col-md-3">
+    <hr />
+    <h4>LEARN TO SURF TRIPS</h4>
+    <hr />
+
+    <p><span class="glyphicon glyphicon-map-marker"></span>&nbsp;Byron Bay, NSW</p><br />
+    <p><span class="glyphicon glyphicon-calendar"></span>&nbsp;Dates</p>
+
+    <ul>
+        <li class="w3-padding">03 - 05 August</li>
+        <li class="w3-padding">17 - 19 August</li>
+        <li class="w3-padding">31 August - 02 September</li>
+    </ul>
+    <p class="w3-opacity w3-center"><em>Tickets sellout fast! 60 people&nbsp;per trip</em></p>
+    <p class="w3-opacity w3-center"><em>$319.57 per person</em></p>
+    @*<p>@Html.ActionLink("TICKETS", "TicketForm", "Tickets", null, new {@class = "btn btn-success btn-md btn-block", @Id= "buttonAlign" })</p>*@
+    
+    <div id="buttonAlign">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="XMVW3SVPD54XJ">
+            <input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+        </form>
+
+
+    </div>
+
+   
+
+</div>
+<div class="col-md-1"></div>
+
+
+<!--Event Description and Location-->
+<div class="row"></div>
+<div class="col-md-1"></div>
+<div class="col-md-7">
+    <hr />
+    <h4 class="w3-justify"><strong>LEARN TO SURF BYRON BAY</strong></h4>
+    <hr />
+    <p>This is QUT Surfers first learn to surf weekend for the semester. We have got you covered for everything you need. QUT Surfers and Soul Surf School will be taking a lucky 60 people down to Byron Bay over the weekend for an awesome full weekend of surfing, exploring and partying. The package includes:</p>
+    <p>
+        <ul>
+            <li>Return Trip to Byron Bay</li>
+            <li>Two Nights Accommodation</li>
+            <li>2 x Breakfast and 2 x Dinner</li>
+            <li>All Equipment Provided, Including Wetsuits!</li>
+            <li>Downtime in the amazing Byron Bay to explore, relax or do a multitude of other activities</li>
+            <li>Bonus club t-shirt</li>
+        </ul>
+    </p>
+
+    <hr />
+    <h4 class="w3-justify"><strong>ITINERARY</strong></h4>
+    <hr />
+    <p class="w3-justify">
+        <strong>Friday DAY 1:</strong><br />
+        Arrive 2:30 pm at bus stop 69A Alice street QUT Gardens point. Do not be late as the bus could depart without you. Departure is 3 pm sharp.<br />
+        Arrive in Byron Bay that afternoon.<br />
+        BBQ and vibes on at the accommodation before we head out for a Paint Party, (pack clothes you can get paint on).<br /> <br />
+
+        <strong>Saturday DAY 2:</strong><br />
+        Breakfast included<br /> Split into groups - one group will surf, while the other groups explores Byron bay.<br />
+        While exploring Byron, grab some lunch at a local cafe or the shops.<br />
+        Rotate groups - Next group Surfs, first group explores.<br />
+        Pizza Dinner included with a pub crawl organised and run by the QUT Surfers Team.<br /> <br />
+
+        <strong>Sunday DAY 3:</strong><br />
+        Rinse and Repeat of Saturday but depart Byron at around 6pm.<br />
+        Find your own dinner.<br /> Return to QUT around 7-8pm.<br /> <br />
+    <hr />
+    <h4 class="w3-justify"><strong>WHAT TO BRING</strong></h4>
+    <hr />
+        Appropriate clothing for a full weekend, Including:<br />
+        Going out party (dress codes not super strict)<br />
+        Clothes you can get paint on at the Paint Party for friday night!<br />
+        Casual Day clothes<br /> Towel, Sunscreen and Water bottle<br />
+        Don't forget extra spending money for around Byron and drinks!<br />
+    <span style="color: #ff0000;"><u>Bring ID!!!</u></span><br /> 
+    Please don't over pack or bring your whole wardrobe as there is limited space on the bus for baggage.<br /> <br />
+        <br /> <br />
+</div>
+
+<!--Optional Extras Section-->
+<div class="col-md-3">
+    <hr />
+    <p><strong>MUST BE A PAID MEMBER TO ATTEND</strong></p>
+    <hr />
+    <p>If you are not a member already please go to the link below and sign up. We will be checking everyone off before you get on the bus. This is a must as the membership covers insurance.</p>
+    <hr />
+    <p><strong>OPTIONAL EXTRAS</strong></p>
+    <hr />
+    <p>On top of the surfing, you also have the option to book additional activities for your down time when not surfing, his includes; kayaking and sky-diving. We will contact everyone shortly after the trip has sold to organise this for anyone who wishes to do these activities.</p>
+    <hr />
+    <p><strong>PAYMENT OPTIONS</strong>: PayPal </p>
+    <hr />
+    <p><span style="color: #ff0000;">*WARNING&nbsp;NO REFUNDS*</span></p>
+    <hr />
+    <p>As we pay soul surf school a week in-advance. It is up to you to sell your ticket but please contact us first. QUT Surfers Message Board would be first place to try or contact us through our Facebook.<br /> These guys are the best in the business and we can guarantee you will be up and surfing in no time. Hope to see you there! Get keen!</p>
+</div>
+<div class="col-md-1"></div>
+
+<div class="row"></div>

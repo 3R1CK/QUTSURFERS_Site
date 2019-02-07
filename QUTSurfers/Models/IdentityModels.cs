@@ -20,6 +20,9 @@ namespace QUTSurfers.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet <Members> Members { get; set; }
+        public DbSet<LevelOfSurfing> SurfingLevels { get; set; }
+        public DbSet<Payment> PaymentMethods { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

@@ -1,0 +1,22 @@
+﻿:target:before {
+    content: "";
+    display: block;
+    height: 98px; /* fixed header height*/
+    margin: -98px 0 0; /* negative fixed header height */
+}
+
+.worldMapContainer {
+    background-color: #ffffff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.worldMap {
+    max-height: 500px;
+    margin: 0 auto;
+}
+
+.pull-left {
+    height: 150px;
+    padding-right: 20px;
+}

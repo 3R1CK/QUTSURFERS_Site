@@ -52,12 +52,24 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -167,21 +179,71 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\MembersController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902071123183_InitialModelQUTSurfers.cs" />
+    <Compile Include="Migrations\201902071123183_InitialModelQUTSurfers.Designer.cs">
+      <DependentUpon>201902071123183_InitialModelQUTSurfers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902071200140_AddSurfingLevel.cs" />
+    <Compile Include="Migrations\201902071200140_AddSurfingLevel.Designer.cs">
+      <DependentUpon>201902071200140_AddSurfingLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902071201365_AddPaymentMethod.cs" />
+    <Compile Include="Migrations\201902071201365_AddPaymentMethod.Designer.cs">
+      <DependentUpon>201902071201365_AddPaymentMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Members.cs" />
+    <Compile Include="Models\LevelOfSurfing.cs" />
+    <Compile Include="Models\Tshirt.cs" />
+    <Compile Include="Models\Ticket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\MemberFormViewModel.cs" />
+    <Compile Include="ViewModels\TicketingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\About.css" />
+    <Content Include="Content\AboutHover.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Footer.css" />
+    <Content Include="Content\Images\banner2V1.1.jpg" />
+    <Content Include="Content\Images\banner3V1.1.JPG" />
+    <Content Include="Content\Images\banner4.jpg" />
+    <Content Include="Content\Images\bannerV1.1.JPG" />
+    <Content Include="Content\Images\blake-hunter-223009-unsplash.jpg" />
+    <Content Include="Content\Images\ExecTeamPics\Briggite.JPG" />
+    <Content Include="Content\Images\ExecTeamPics\Cat.JPG" />
+    <Content Include="Content\Images\ExecTeamPics\Erick.JPG" />
+    <Content Include="Content\Images\ExecTeamPics\Grace.JPG" />
+    <Content Include="Content\Images\ExecTeamPics\Ida.JPG" />
+    <Content Include="Content\Images\ExecTeamPics\Jac.JPG" />
+    <Content Include="Content\Images\ExecTeamPics\Miriam.JPG" />
+    <Content Include="Content\Images\ExecTeamPics\Torkil.JPG" />
+    <Content Include="Content\Images\jeremy-bishop-489932-unsplash.jpg" />
+    <Content Include="Content\Images\joschko-hammermann-2224-unsplash.jpg" />
+    <Content Include="Content\Images\logo.ico" />
+    <Content Include="Content\Images\Logo1.ico" />
+    <Content Include="Content\Images\marcus-ng-570012-unsplash.jpg" />
+    <Content Include="Content\Images\QUTlogo.ico" />
+    <Content Include="Content\Images\QUTlogo.jpg" />
+    <Content Include="Content\tableexport.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -189,6 +251,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\FileSaver.js" />
+    <Content Include="Scripts\FileSaver.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -199,6 +263,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\tableexport.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -234,6 +299,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Events\ByronTrip.cshtml" />
+    <Content Include="Views\Tickets\TicketForm.cshtml" />
+    <Content Include="Views\Members\StudentForm.cshtml" />
+    <Content Include="Views\Members\MembersInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -245,6 +314,17 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902071123183_InitialModelQUTSurfers.resx">
+      <DependentUpon>201902071123183_InitialModelQUTSurfers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902071200140_AddSurfingLevel.resx">
+      <DependentUpon>201902071200140_AddSurfingLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902071201365_AddPaymentMethod.resx">
+      <DependentUpon>201902071201365_AddPaymentMethod.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

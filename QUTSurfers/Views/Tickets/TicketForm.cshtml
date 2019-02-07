@@ -1,0 +1,33 @@
+﻿@model QUTSurfers.ViewModels.TicketingViewModel;
+@{
+    ViewBag.Title = "PayNow";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PayNow</h2>
+
+@using (@Html.BeginForm("Save", "Movies"))
+{
+    @Html.ValidationSummary(true, "Please fix the following errors.")
+    <div class="form-group">
+        @Html.LabelFor(m => m.TicketStudent.MemberName)
+        @Html.TextBoxFor(m => m.TicketStudent.MemberName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.TicketStudent.MemberName)
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.Trip)
+        @Html.DropDownListFor(m => m.Trip, new SelectList(Model.Trip, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Trip)
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.TicketStudent.Email)
+        @Html.TextBoxFor(m => m.TicketStudent.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.TicketStudent.Email)
+    </div>
+   
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}

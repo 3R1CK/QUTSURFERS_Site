@@ -1,0 +1,93 @@
+﻿@model QUTSurfers.ViewModels.MemberFormViewModel
+@{
+    ViewBag.Title = "StudentForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (@Html.BeginForm("Save", "Members"))
+{
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <hr/>
+            <h4>QUT Surfers Club Membership</h4>
+            <hr/>
+            @Html.ValidationSummary(true, "Please fix the following errors.")
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+     
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Student.FirstName)
+                @Html.TextBoxFor(m => m.Student.FirstName, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Student.FirstName)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Student.LastName)
+                @Html.TextBoxFor(m => m.Student.LastName, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Student.LastName)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Student.PhoneNumber)
+                @Html.TextBoxFor(m => m.Student.PhoneNumber, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Student.PhoneNumber)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Student.Email)
+                @Html.TextBoxFor(m => m.Student.Email, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Student.Email)
+            </div>
+
+        </div>
+        <div class="col-md-4">
+          
+            <div class="form-group">
+                @Html.LabelFor(m => m.Student.StudentNumber)
+                @Html.TextBoxFor(m => m.Student.StudentNumber, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Student.StudentNumber)
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(m => m.Student.SurfingLevelId)
+                @Html.DropDownListFor(m => m.Student.SurfingLevelId, new SelectList(Model.LevelOfSurfing, "Id", "Name"), "Select Surfing Level", new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Student.SurfingLevelId)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Student.PaymentTypeId)
+                @Html.DropDownListFor(m=>m.Student.PaymentTypeId, new SelectList(Model.PaymentType, "Id","Name"), "Select Payment Type", new {@class="form-control"})
+                @Html.ValidationMessageFor(m => m.Student.PaymentTypeId)
+            </div>
+            
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(m => m.Student.IntlStudent)Are you an international or exchange student?
+
+                </label>
+            </div>
+
+            @Html.HiddenFor(m => m.Student.Id)
+            @Html.AntiForgeryToken()
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <!--Last Row for Submit button-->
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" align="center">
+            <button type="submit" class="btn btn-primary">Submit</button><br/><br/><br/>
+        </div>
+        
+        <div class="col-md-2"></div>
+    </div>
+}
+
