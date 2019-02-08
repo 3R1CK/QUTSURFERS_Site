@@ -4,7 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using QUTSurfers.Models;
-
+using AutoMapper;
+using QUTSurfers.Dtos;
 
 namespace QUTSurfers.Controllers.Api
 {
@@ -19,70 +20,75 @@ namespace QUTSurfers.Controllers.Api
         }
 
         //GET /api/members
-        public IEnumerable<Members> GetMembers()
+        [HttpGet]
+        public IHttpActionResult GetMembers()
         {
-            return _context.Members.ToList();
+            var membersDtos = _context.Members
+                .ToList()
+                .Select(Mapper.Map<Members, MemberDto>);
+            return Ok(membersDtos);
         }
 
         //GET /api/members/1
-        public Members GetMember(int id)
+        [HttpPost]
+        public IHttpActionResult GetMember(int id)
         {
             var member = _context.Members.SingleOrDefault(c => c.Id == id);
 
             if (member == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
 
-            return member;
+            return Ok(Mapper.Map<Members, MemberDto>(member));
         }
 
         //POST /api/members
         [HttpPost]
-        public Members CreateCustomer(Members member)
+        public IHttpActionResult CreateMember(MemberDto memberDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
 
+            var member = Mapper.Map<MemberDto, Members>(memberDto);
             _context.Members.Add(member);
             _context.SaveChanges();
 
-            return member;
+            memberDto.Id = member.Id;
+            return Created(new Uri(Request.RequestUri + "/" + member.Id), memberDto);
         }
 
         //PUT /api/members/1
         [HttpPut]
-        public void UpdateCustomer(int id, Members member)
+        public IHttpActionResult UpdateMember(int id, MemberDto memberDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
 
             var memberInDb = _context.Members.SingleOrDefault(c => c.Id == id);
 
             if (memberInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
 
-            memberInDb.FirstName = member.FirstName;
-            memberInDb.LastName = member.LastName;
-            memberInDb.Email = member.Email;
-            memberInDb.PhoneNumber = member.PhoneNumber;
-            memberInDb.SurfingLevelId = member.SurfingLevelId;
-            memberInDb.PaymentTypeId = member.PaymentTypeId;
-            memberInDb.IntlStudent = member.IntlStudent;
+            Mapper.Map(memberDto, memberInDb);
 
             _context.SaveChanges();
+
+            return Ok();
 
         }
 
         //DELETE /api/members/1
         [HttpDelete]
-        public void DeleteMember(int id)
+        public IHttpActionResult DeleteMember(int id)
         {
             var memberInDb = _context.Members.SingleOrDefault(c => c.Id == id);
 
             if (memberInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
 
             _context.Members.Remove(memberInDb);
             _context.SaveChanges();
+
+            return Ok();
 
         }
     }
