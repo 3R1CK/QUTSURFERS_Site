@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Data.Entity;
 using System.Web.Http;
 using QUTSurfers.Models;
 using AutoMapper;
@@ -24,13 +25,15 @@ namespace QUTSurfers.Controllers.Api
         public IHttpActionResult GetMembers()
         {
             var membersDtos = _context.Members
+                .Include(c=>c.SurfingLevel)
+                .Include(c=>c.PaymentType)
                 .ToList()
                 .Select(Mapper.Map<Members, MemberDto>);
             return Ok(membersDtos);
         }
 
         //GET /api/members/1
-        [HttpPost]
+        [HttpGet]
         public IHttpActionResult GetMember(int id)
         {
             var member = _context.Members.SingleOrDefault(c => c.Id == id);
@@ -49,6 +52,7 @@ namespace QUTSurfers.Controllers.Api
                 return BadRequest();
 
             var member = Mapper.Map<MemberDto, Members>(memberDto);
+
             _context.Members.Add(member);
             _context.SaveChanges();
 

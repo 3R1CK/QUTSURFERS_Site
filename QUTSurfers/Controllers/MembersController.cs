@@ -85,7 +85,12 @@ namespace QUTSurfers.Controllers{
 
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Payment", "Members");
+        }
+
+        public ActionResult Payment()
+        {
+            return View("MembershipPayment");
         }
     }
 }

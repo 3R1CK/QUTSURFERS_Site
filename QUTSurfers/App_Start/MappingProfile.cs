@@ -14,6 +14,8 @@ namespace QUTSurfers.App_Start
         {
             Mapper.CreateMap<Members, MemberDto>();
             Mapper.CreateMap<MemberDto, Members>();
+            Mapper.CreateMap<Payment, PaymentDto>();
+            Mapper.CreateMap<LevelOfSurfing, LevelOfSurfingDto>();
         }
     }
 }

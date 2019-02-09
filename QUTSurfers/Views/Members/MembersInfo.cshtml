@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<QUTSurfers.Models.Members>
 
 @{
-    ViewBag.Title = "MembersInfo";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "MembersInfo";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
@@ -12,84 +12,39 @@
 
 @if (!Model.Any())
 {
-    <p>We don't have any members yet.</p>
+	<p>We don't have any members yet.</p>
 }
 else
 {
-    <table class="table table-bordered table-hover">
-        <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email Address</th>
-            <th>Phone Number</th>
-            <th>Student Number</th>
-            <th>International Student?</th>
-            <th>Level of Surfing</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var member in Model)
-        {
-            <tr>
-                <td>@member.FirstName</td>
-                <td>@member.LastName</td>
-                <td>@member.Email</td>
-                <td>@member.PhoneNumber</td>
-                <td>@member.StudentNumber</td>
-                <td>@member.IntlStudent</td>
-                <td>@member.SurfingLevel.Name</td>
+	<table id="members" class="table table-bordered table-hover">
+		<thead>
+		<tr>
+		    <th>Student Id</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Phone</th>
+			<th>International?</th>
+			<th>Level of Surfing</th>
+		    <th>Paid</th>
+			<th>Validation</th>
+		</tr>
+		</thead>
+		<tbody></tbody>
 
-            </tr>
-        }
-        </tbody>
+	</table>
 
-    </table>
-    <br/>
-    
+	<div class="row">
+		
+	</div>
+	<br/>
+	
 }
 
-<script>
-   
-    $("table").tableExport({
 
-        // Displays table headers (th or td elements) in the <thead>
-        headers: true,
 
-        // Displays table footers (th or td elements) in the <tfoot>    
-        footers: true,
+<script src="~/Scripts/QUTSurfersScripts/ExportMembersTable.js" type="text/javascript" language="javascript"></script>	
+<script src="~/Scripts/QUTSurfersScripts/MembersDataTable.js" type="text/javascript" language="javascript"></script>	
+<script src="~/Scripts/QUTSurfersScripts/date.format.js"></script>
 
-        // Filetype(s) for the export
-        formats: ["xls", "csv", "txt"],
-
-        // Filename for the downloaded file
-        fileName: "id",
-
-        // Style buttons using bootstrap framework  
-        bootstrap: true,
-
-        // Automatically generates the built-in export buttons for each of the specified formats   
-        exportButtons: true,
-
-        // Position of the caption element relative to table
-        position: "bottom",
-
-        // (Number, Number[]), Row indices to exclude from the exported file(s)
-        ignoreRows: null,
-
-        // (Number, Number[]), column indices to exclude from the exported file(s)              
-        ignoreCols: null,
-
-        // Removes all leading/trailing newlines, spaces, and tabs from cell text in the exported file(s)     
-        trimWhitespace: false,
-
-        // (Boolean), set direction of the worksheet to right-to-left (default: false)
-        RTL: false,
-
-        // (id, String), sheet name for the exported spreadsheet, (default: 'id') 
-        sheetname: "id"
-
-    });
-</script>
 
 
