@@ -5,6 +5,7 @@
 <style>
 .panel-default > .panel-heading-custom {
     background: #1C2331; color: #fff;
+    text-align: center;
 }
 .peopleCarouselImg img {
   width: auto;
@@ -37,14 +38,10 @@
         </div>
 
         <div class="item peopleCarouselImg">
-            <img class="second-slide" src="~/Content/Images/banner2V1.1.jpg" alt="Second Slide">
+            <img class="second-slide" src="~/Content/Images/banner4.JPG" alt="Second Slide">
         </div>
         <div class="item peopleCarouselImg">
             <img class="third-slide" src="~/Content/Images/banner3V1.1.JPG" alt="Third Slide">
-        </div>
-        
-        <div class="item peopleCarouselImg">
-            <img class="fourth-slide" src="~/Content/Images/banner4.JPG" alt="Fourth Slide">
         </div>
     </div>
     <!-- Carousel controls -->
@@ -54,11 +51,12 @@
     <a class="carousel-control right" href="#myCarousel" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
-</div><br><br>
+</div><br>
 
 
 <hr />
-<h4 class="w3-justify"><strong>SEM 01-2019 EVENTS:</strong></h4>
+<h4 class="w3-justify"><strong>Learn to Surf at Byron Bay Trips</strong></h4><em>(Semester 01 - 2019)</em>
+
 <hr />
 
 <!--Events Section-->
@@ -66,40 +64,45 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="panel panel-default">
-                <div class="panel-heading panel-heading-custom"><strong>BOOK NOW! Byron Bay Trips Sem01-2019</strong></div>
+                <div class="panel-heading panel-heading-custom"><i class="fa fa-ticket" style="font-size:24px;color:white"></i><strong> Byron Bay Trip 1</strong></div>
+
                 <div class="panel-body"><img src="/Content/Images/jeremy-bishop-489932-unsplash.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
                 <div class="panel-footer">
-                    @Html.ActionLink("More Info", "ByronTrip", "Events",null, new {@class= "btn btn-primary btn-md btn-block" })
+                    <p><span class="glyphicon glyphicon-calendar"></span> Fri., 1 March 2019 - Sun., 3 March 2019</p>
+      
+                        @Html.ActionLink("MORE INFO", "ByronTrip1", "Events", null, new {@class = "btn btn-primary btn-md btn-block", style = "font-weight:bold;" })
+                    
                 </div>
             </div>
         </div>
         <div class="col-sm-4"> 
             <div class="panel panel-default">
-                <div class="panel-heading panel-heading-custom"><strong>Swimming Classes</strong></div>
-                <div class="panel-body"><img src="/Content/Images/marcus-ng-570012-unsplash.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-heading panel-heading-custom"><i class="fa fa-ticket" style="font-size:24px;color:white"></i><strong> Byron Bay Trip 2</strong></div>
+
+                <div class="panel-body"><img src="/Content/Images/khachik-simonian-269941-unsplash.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
                 <div class="panel-footer">
-                    <button type="button" class="btn btn-primary btn-md btn-block">More Info</button>
+                    <p><span class="glyphicon glyphicon-calendar"></span> Fri., 15 March 2019 - Sun., 17 March 2019</p>
+                    @Html.ActionLink("MORE INFO", "ByronTrip2", "Events", null, new {@class = "btn btn-primary btn-md btn-block", style = "font-weight:bold;" })
+
                 </div>
             </div>
         </div>
         <div class="col-sm-4"> 
             <div class="panel panel-default">
-                <div class="panel-heading panel-heading-custom"><strong>Intermediate-Advanced Surfing Trips</strong></div>
+                <div class="panel-heading panel-heading-custom"><i class="fa fa-ticket" style="font-size:24px;color:white"></i><strong> Byron Bay Trip 3</strong></div>
                 <div class="panel-body"><img src="/Content/Images/blake-hunter-223009-unsplash.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
                 <div class="panel-footer">
-                    <button type="button" class="btn btn-primary btn-md btn-block">More Info</button>
+                    <p><span class="glyphicon glyphicon-calendar"></span> Fri., 29 March 2019 - Sun., 31 March 2019</p>
+                    @Html.ActionLink("MORE INFO", "ByronTrip3", "Events", null, new {@class = "btn btn-primary btn-md btn-block", style = "font-weight:bold;" })
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<br/><br/>
 <footer>
-        
-           
-    <a href="https://www.facebook.com/qutsurf/" class="fa fa-facebook"></a>
-    <a href="https://www.instagram.com/qutsurfers/?hl=en" class="fa fa-instagram"></a>
+    <a href="https://www.facebook.com/qutsurf/" class="fa fa-facebook" target="_blank"></a>
+    <a href="https://www.instagram.com/qutsurfers/?hl=en" class="fa fa-instagram" target="_blank"></a>
     &copy; @DateTime.Now.Year - QUT SURFERS
-                
-       
 </footer>

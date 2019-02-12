@@ -9,7 +9,17 @@ namespace QUTSurfers.Controllers
     public class EventsController : Controller
     {
         // GET: Events
-        public ViewResult ByronTrip()
+        public ViewResult ByronTrip1()
+        {
+            return new ViewResult();
+        }
+
+        public ViewResult ByronTrip2()
+        {
+            return new ViewResult();
+        }
+
+        public ViewResult ByronTrip3()
         {
             return new ViewResult();
         }

@@ -11,7 +11,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <hr />
-            <h2><strong>QUT Surfers Club Membership</strong></h2>
+            <h2><strong>Edit Member Information</strong></h2>
             <hr />
             @Html.ValidationSummary(true, "Please fix the following errors.")
         </div>
@@ -65,23 +65,25 @@
                 @Html.LabelFor(m => m.Student.PaymentTypeId)
                 @Html.DropDownListFor(m => m.Student.PaymentTypeId, new SelectList(Model.PaymentType, "Id", "Name"), "Select Payment Type", new { @class = "form-control js-payvalidation" })
                 @Html.ValidationMessageFor(m => m.Student.PaymentTypeId)
-                <p><strong>NOTE:</strong> Cash payment available only during O-Week</p>
-               
+
+
             </div>
 
             <div class="checkbox">
                 <label>
-                    @Html.CheckBoxFor(m => m.Student.IntlStudent)Are you an international or exchange student?
+                    @Html.CheckBoxFor(m => m.Student.IntlStudent) International or Exchange student?
 
                 </label>
             </div>
+
+
             <div class="checkbox">
                 <label>
-                    @Html.CheckBoxFor(m => m.Student.PaymentApproval, new { @class = "hidden" })
-                   
-                </label>
-            </div>
+                    @Html.CheckBoxFor(m => m.Student.PaymentApproval, new { @class = "color: red" })<strong>Check the box if membership payment has been validated</strong>
 
+                </label>
+                
+            </div>
         </div>
         <div class="col-md-2"></div>
     </div>
@@ -90,28 +92,43 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8" align="center">
-            <button type="submit" class="btn btn-primary">Submit</button><br /><br /><br />
+            @Html.HiddenFor(m=>m.Student.Id)
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-success">Update</button>
+            <button class="btn btn-danger js-delete" formaction="/Members/Details/" data-member-id=@Model.Student.Id>Delete</button>
+           
+            <br /><br /><br />
+
         </div>
 
         <div class="col-md-2"></div>
     </div>
-
-    <footer>
-        <a href="https://www.facebook.com/qutsurf/" class="fa fa-facebook" target="_blank"></a>
-        <a href="https://www.instagram.com/qutsurfers/?hl=en" class="fa fa-instagram" target="_blank"></a>
-        &copy; @DateTime.Now.Year - QUT SURFERS
-    </footer>
 }
 
-<script>
+<footer>
+    <a href="https://www.facebook.com/qutsurf/" class="fa fa-facebook" target="_blank"></a>
+    <a href="https://www.instagram.com/qutsurfers/?hl=en" class="fa fa-instagram" target="_blank"></a>
+    &copy; @DateTime.Now.Year - QUT SURFERS
+</footer>
 
-    $("#Student_PaymentTypeId").change(function () {
-        if ($('#Student_PaymentTypeId :selected').text() === 'Cash') {
-            $('#Student_PaymentApproval').prop('checked', false);
-        } else {
-            $('#Student_PaymentApproval').prop('checked', true);
-        }
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
 
-    });
-</script>
+            $(".js-delete").click(function() {
+                var buttonDel = $(this);
 
+                $.ajax({
+                    url: "/api/members/" + buttonDel.attr("data-member-id"),
+                    method: "DELETE",
+                    success: function() {
+                        table.row(button.parents("tr")).remove().draw();
+                    }
+                });
+
+            });
+        });
+
+    </script>
+}

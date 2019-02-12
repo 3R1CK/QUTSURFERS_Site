@@ -23,6 +23,7 @@ namespace QUTSurfers.Models
         public string LastName { get; set; }
 
         [Required]
+        [EmailAddress]
         [StringLength(255)]
         [Display(Name = "Email Address")]
         public string Email { get; set; }

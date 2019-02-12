@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>QUT SURFERS - Home Page</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/Footer.css" rel="stylesheet" />
@@ -26,15 +26,29 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               
-                <a class="navbar-brand" href="/">QUT SURFERS</a>
+
+                <a class="navbar-brand" href="/">
+                    <img alt="UCC APJ" src="~/Content/Images/logo1.ico"> QUT SURFERS
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Members Details", "Details", "Members")</li>
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+
+                    
+                    @if (User.IsInRole("CanManageMembersAndEvents"))
+                    {
+                        <li>@Html.ActionLink("New Member", "New", "Members", routeValues: null, htmlAttributes: new { id = "membershipLink" })</li>
+                        <li>@Html.ActionLink("Members Details", "Details", "Members")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Membership", "New", "Members", routeValues: null, htmlAttributes: new { id = "membershipLink" })</li>
+
+                    }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -42,9 +56,9 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        
+
     </div>
-    
+
     @Scripts.Render("~/bundles/lib")
     @RenderSection("scripts", required: false)
 

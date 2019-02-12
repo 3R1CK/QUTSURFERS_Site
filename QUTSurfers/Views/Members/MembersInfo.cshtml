@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<QUTSurfers.Models.Members>
 
 @{
-	ViewBag.Title = "MembersInfo";
+	ViewBag.Title = "Members Details";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -19,17 +19,42 @@ else
 	<table id="members" class="table table-bordered table-hover">
 		<thead>
 		<tr>
-		    <th>Student Id</th>
+			<th>Date Added</th>
+			<th>Student Id</th>
 			<th>Name</th>
 			<th>Email</th>
 			<th>Phone</th>
-			<th>International?</th>
+			<th>Intl?</th>
 			<th>Level of Surfing</th>
-		    <th>Paid</th>
+			<th>Paid</th>
 			<th>Validation</th>
 		</tr>
 		</thead>
-		<tbody></tbody>
+		<tbody>
+		@foreach (var member in Model)
+		{
+			<tr>
+				<td>@member.DateAdded.ToString("dd MMM yyy")</td>
+				<td>@member.StudentNumber</td>
+				<td>@Html.ActionLink(member.FirstName + " " + member.LastName, "Edit", "Members", new { id = member.Id }, null)</td>
+				<td>@member.Email</td>
+				<td>@member.PhoneNumber</td>
+				<td>@member.IntlStudent</td>
+				<td>@member.SurfingLevel.Name</td>
+				<td>@member.PaymentType.Name</td>
+				
+					@if (member.PaymentApproval.Equals(true))
+					{
+					    <td><a class='btn btn-xs btn-success' href='#" + member.id + "'>Confirmed</a></td>
+					  
+					}
+					else
+					{
+					    <td><a class='btn btn-xs btn-danger' href='#'>Pending</a></td>
+					}
+
+			</tr>    }
+		</tbody>
 
 	</table>
 
@@ -40,11 +65,15 @@ else
 	
 }
 
+@section scripts
+{
+	<script>
+		$(document).ready(function(){
+			$("#members").DataTable();
+		});
+	</script>
 
-
+}
 <script src="~/Scripts/QUTSurfersScripts/ExportMembersTable.js" type="text/javascript" language="javascript"></script>	
-<script src="~/Scripts/QUTSurfersScripts/MembersDataTable.js" type="text/javascript" language="javascript"></script>	
-<script src="~/Scripts/QUTSurfersScripts/date.format.js"></script>
-
 
 

@@ -90,7 +90,7 @@ h2 {
     }
 }
 
-@media (max-width: 610px) {
+@media (max-width: 350px) {
     .user {
         width: 100%;
     }

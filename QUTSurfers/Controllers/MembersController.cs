@@ -26,6 +26,7 @@ namespace QUTSurfers.Controllers{
         }
 
         // GET: Students
+        [Authorize(Roles = RoleName.CanManageMembersAndEvents)]
         public ActionResult Details()
         {
             var members = _context.Members
@@ -69,6 +70,10 @@ namespace QUTSurfers.Controllers{
             {
                 student.DateAdded = DateTime.Now;
                 _context.Members.Add(student);
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Payment", "Members");
             }
 
             else
@@ -77,20 +82,43 @@ namespace QUTSurfers.Controllers{
                 studentInDb.FirstName = student.FirstName;
                 studentInDb.LastName = student.LastName;
                 studentInDb.Email = student.Email;
+                studentInDb.StudentNumber = student.StudentNumber;
+                studentInDb.PaymentApproval = student.PaymentApproval;
                 studentInDb.PhoneNumber = student.PhoneNumber;
                 studentInDb.SurfingLevelId = student.SurfingLevelId;
                 studentInDb.PaymentTypeId = student.PaymentTypeId;
                 studentInDb.IntlStudent = student.IntlStudent;
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Details", "Members");
             }
 
-            _context.SaveChanges();
-
-            return RedirectToAction("Payment", "Members");
+           
         }
 
         public ActionResult Payment()
         {
             return View("MembershipPayment");
+        }
+
+        [Authorize(Roles = RoleName.CanManageMembersAndEvents)]
+        public ActionResult Edit(int id)
+        {
+            var student = _context.Members.SingleOrDefault(c => c.Id == id);
+
+            if (student == null)
+                return HttpNotFound();
+
+            var viewModel = new MemberFormViewModel()
+            {
+                Student = student,
+                LevelOfSurfing = _context.SurfingLevels.ToList(),
+                PaymentType = _context.PaymentMethods.ToList()
+                
+            };
+
+            return View("EditMemberForm", viewModel);
         }
     }
 }

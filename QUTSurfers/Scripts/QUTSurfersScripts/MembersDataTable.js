@@ -12,7 +12,7 @@
             {
                 data: "firstName",
                 render: function (data, type, member) {
-                    return member.firstName + " " + member.lastName;
+                    return "<a href='/members/edit/" + member.id + "'>" + member.firstName + " " + member.lastName + "</a>";
                 }
             },
            
@@ -35,10 +35,10 @@
             {
                 data: "paymentApproval",
                 render: function (data, type, member) {
-                    if (data == false) {
-                        return "Confirmed";
+                    if (data == true) {
+                        return "<a class='btn btn-xs btn-success' href='#" + member.id + "'>Confirmed</a>";
                     } else {
-                        return "<a class='btn btn-xs btn-danger' href='/members/" + member.id + "'>Pending</a>";
+                        return "<a class='btn btn-xs btn-danger' href='#" + member.id + "'>Pending</a>";
                     }
 
                 }
