@@ -120,7 +120,7 @@
                 var buttonDel = $(this);
 
                 $.ajax({
-                    url: "/api/members/" + buttonDel.attr("data-member-id"),
+                    url: "/api/members/"+buttonDel.attr("data-member-id"),
                     method: "DELETE",
                     success: function() {
                         table.row(button.parents("tr")).remove().draw();
