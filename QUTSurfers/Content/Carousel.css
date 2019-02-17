@@ -1,0 +1,17 @@
+﻿.panel-default > .panel-heading-custom {
+    background: #374660; color: #fff;
+    text-align: center;
+}
+.panel-heading{
+    padding: 10px 0px 25px 5px;
+}
+.peopleCarouselImg img {
+  width: auto;
+  height: 400px;
+  max-height: 400px;
+  align-content: center;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}

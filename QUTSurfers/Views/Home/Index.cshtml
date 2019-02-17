@@ -2,29 +2,6 @@
     ViewBag.Title = "Home Page";
 }
 
-<style>
-.panel-default > .panel-heading-custom {
-    background: #374660; color: #fff;
-    text-align: center;
-}
-.panel-heading{
-    padding: 10px 0px 25px 5px;
-}
-.peopleCarouselImg img {
-  width: auto;
-  height: 400px;
-  max-height: 400px;
-  align-content: center;
-}
-
-.carousel-inner > .item > img {
-    margin: 0 auto;
-}
-
-
-
-</style>
-
 
     <!-- Carousel -->
 <div id="myCarousel" class="carousel slide" data-interval="5000" data-ride="carousel">
@@ -33,19 +10,42 @@
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+        <li data-target="#myCarousel" data-slide-to="6"></li>
+        <li data-target="#myCarousel" data-slide-to="7"></li>
+       
     </ol>
     <!-- Wrapper for carousel items -->
     <div class="carousel-inner">
         <div class="active item peopleCarouselImg">
-            <img class="first-slide" src="~/Content/Images/bannerV1.1.JPG" alt="First Slide">
+            <img class="first-slide" src="~/Content/Images/Carousel/Logo.png" alt="First Slide">
         </div>
 
         <div class="item peopleCarouselImg">
-            <img class="second-slide" src="~/Content/Images/banner4.JPG" alt="Second Slide">
+            <img class="second-slide" src="~/Content/Images/Carousel/GroupByron.png" alt="Second Slide">
         </div>
         <div class="item peopleCarouselImg">
-            <img class="third-slide" src="~/Content/Images/banner3V1.1.JPG" alt="Third Slide">
+            <img class="third-slide" src="~/Content/Images/Carousel/StallDurfers.jpg" alt="Third Slide">
         </div>
+        <div class="item peopleCarouselImg">
+            <img class="third-slide" src="~/Content/Images/Carousel/SwimmingSurfers.jpg" alt="Seventh Slide">
+        </div>
+        <div class="item peopleCarouselImg">
+            <img class="third-slide" src="~/Content/Images/Carousel/MatesTees.jpg" alt="Fith Slide">
+        </div>
+        <div class="item peopleCarouselImg">
+            <img class="third-slide" src="~/Content/Images/Carousel/Social.jpg" alt="Fourth Slide">
+        </div>
+        <div class="item peopleCarouselImg">
+            <img class="third-slide" src="~/Content/Images/Carousel/SurfingLesson.jpg" alt="Fith Slide">
+        </div>
+        <div class="item peopleCarouselImg">
+            <img class="third-slide" src="~/Content/Images/Carousel/PubCrawl.jpg" alt="Sixth Slide">
+        </div>
+        
+      
     </div>
     <!-- Carousel controls -->
     <a class="carousel-control left" href="#myCarousel" data-slide="prev">
@@ -109,3 +109,5 @@
     <a href="https://www.instagram.com/qutsurfers/?hl=en" class="fa fa-instagram" target="_blank"></a>
     &copy; @DateTime.Now.Year - QUT SURFERS
 </footer>
+
+<link rel="stylesheet" href="~/Content/Carousel.css"/>

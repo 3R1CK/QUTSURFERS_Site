@@ -237,6 +237,7 @@
     <Content Include="Content\AboutHover.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Carousel.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
     <Content Include="Content\DataTables\css\autoFill.dataTables.css" />
@@ -351,8 +352,17 @@
     <Content Include="Content\Images\ByronTripPics\byronTrip1.jpg" />
     <Content Include="Content\Images\ByronTripPics\byronTrip2.jpg" />
     <Content Include="Content\Images\ByronTripPics\byronTrip3.jpg" />
+    <Content Include="Content\Images\Carousel\GroupByron.png" />
+    <Content Include="Content\Images\Carousel\Logo.png" />
+    <Content Include="Content\Images\Carousel\MatesTees.jpg" />
+    <Content Include="Content\Images\Carousel\PubCrawl.jpg" />
+    <Content Include="Content\Images\Carousel\Social.jpg" />
+    <Content Include="Content\Images\Carousel\StallDurfers.jpg" />
+    <Content Include="Content\Images\Carousel\SurfingLesson.jpg" />
+    <Content Include="Content\Images\Carousel\SwimmingSurfers.jpg" />
     <Content Include="Content\Images\ExecTeamPics\Briggite.JPG" />
     <Content Include="Content\Images\ExecTeamPics\Cat.JPG" />
+    <Content Include="Content\Images\ExecTeamPics\Chris.JPG" />
     <Content Include="Content\Images\ExecTeamPics\Erick.JPG" />
     <Content Include="Content\Images\ExecTeamPics\Grace.JPG" />
     <Content Include="Content\Images\ExecTeamPics\Ida.JPG" />
